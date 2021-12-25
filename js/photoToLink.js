@@ -1,12 +1,10 @@
 function photoToLink(card) {
-    if (!testRange(card)) {
+    let cardNumbers = card.top + '' + card.bottom
+    if (!testRange(cardNumbers)) {
         console.error("Incorrect Card Specified. Be sure the card is in the appropriate range!")
         return null
     }
-    if (typeof card == Number) {
-        card = "" + card
-    }
-    return 'https://www.mattvandenberg.com/images/scout/' + card + '.PNG'
+    return 'https://www.mattvandenberg.com/images/scout/' + cardNumbers + '.PNG'
 }
 
 function testRange(card) {

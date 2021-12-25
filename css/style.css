@@ -1,7 +1,59 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #222;
+    color: white;
 }
 
 .card {
     width: 120px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: fade 5s infinite;
+    animation: fade 5s infinite;
+    -moz-animation: fade 5s infinite;
+    -o-animation: fade 5s infinite;
+}
+
+.loading-heading {
+    font-size: 5em;
+    text-align: center;
+}
+
+.container {
+    visibility: collapse;
+}
+
+.progress {
+    margin-top: 40vh;
+    text-align: center;
+    bottom: 0;
+    font-size: 3em;
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0.2} 
+    50% {opacity: 1}
+    100% {opacity:0.2}
+}
+
+@-moz-keyframes fade {
+    0% {opacity: 0.2} 
+    50% {opacity: 1}
+    100% {opacity:0}  
+}
+
+@keyframes fade {
+    0% {opacity: 0.2} 
+    50% {opacity: 1}
+    100%{opacity: 0.2}
+}
+@-o-keyframes fade {
+    0% {opacity: 0.2} 
+    50% {opacity: 1}
+    100%{opacity: 0.2}
 }
