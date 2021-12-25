@@ -135,7 +135,7 @@ English Translation: Nick Poggi, Yuto Fujikawa<br>
 Cooperation: Jonathan Apilado, Laura Grundmann, Hiroko Hiraoka, Yoshihiro Ura, Fumihiro Kanaya, Yoshihiro Shindo, Tomoaki Tsuchie, Hisanori Hiraoka, Dan Yamamoto<br>
 Publisher: Oink Games Inc.<br>
 
-[www.oinkgames.com](https://www.oinkgames.com)<br>
+[www.oinkgames.com](https://oinkgames.com)<br>
 Made in China 22220920211<br>
 ©2021 Oink Games Inc.
 
