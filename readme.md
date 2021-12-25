@@ -5,6 +5,85 @@ This is a web application version of Kei Kajino's *Scout for the Show*. As no ot
 <br>
 For any inquiries please contact me at my email.
 
-## Rules
+## Game Instructions
+You have suddenly been appointed as the leader of a circus. Using the members of your circus you must put together a show that will beat out your rivals. Everyone on your team has a specific role. To fill in the gaps on your team, try to scout members away from other circus groups! Will you battle with your current members? Or will you wait it out and try to recruit different ones? You will feel amazing when you make the right choices in this speedy card game!
+
+### Contents
+- 45 Cards
+- 23 Scout Chips
+- 5 Scout & Show Chips
+- 30 Score Chips (not present in online version)
+- Starting Player Marker
+
+### **Gameplay**
+### 1. Objective
+Try to put together and play a stronger set of cards than the other players in order to earn points. Cards that are lined up consecutively are stronger, but you cannot reorder the cards in your hand. Skillfully "**Scout**" new cards and put on a "**Show**" while you create a strong hand to try and earn many points. Play as many rounds as there are players; the player with the most total points at the end is the winner!
+
+### 2. Setting Up the Game
+- Decide on a starting player. This player take the Starting Player Marker.
+*For example, at the start of a round, the starting player could be the player that is holding the card with both 1 and 2 shown on it.*
+- Depending on the number of players, return the cards shown below back to the box:
+
+| Players | Card(s) to Remove |
+| ------- | --------------- |
+| 2 | 1 card, has 9 & 10 on it. |
+| 3 | 9 cards, all that have a 10 on them. |
+| 4 | 1 card, has 9 & 10 on it. |
+| 5 | All cards are used. Do not leave any out! |
+
+- Take out Scout & Show chips equal to the number of players. Return any extra chips to the box.
+
+### 3. Setting Up the Round
+- Place all scout chips in the center of the table.
+- Give all players 1 *Scout & Show* chip each.
+- Shuffle the cards well and deal **all of them** to the players evenly. For example, 3 players would leave each player with 12 cards, 4 players would each have 11, and 5 players would each have 9 cards. Be sure to shuffle the cards based on position and orientation.
+- :warning: Do not put the cards in your hand until all cards have been dealt.
+- Once all cards have been dealt, place them in your hand so that the other players cannot see the numbers.
+- Hold the cards in your hand so that you can see the large number in the top left. From this point on, these numbers in the top left will be referred to as your **hand**.
+- :warning: During a round, you are not allowed to rearrange turn any of you cards around. They must remain in the same position for entirety of the game.
+- However, only at the start of a round (immediately after checking your hand) you may change the orientation of all your cards at the same time.
+
+### 4. Your Turn
+- Take turns going clockwise from the starting player. During your turn, you must choose and take one of the following actions:
+1. Show
+2. Scout
+3. Show and Scout
+
+**A. Show**
+Choose a set of cards from your hand and place on the table in front of you.
+<br>
+**Rule 1:**
+If you will only **Show** 1 card, you may choose any card from your hand. If you **Show** more than one card, you must only play consecutive cards from your hand.<br>
+What are consecutive cards?<br>
+When playing more than 1 card from your hand, the cards must either be consecutive (in order from least to greatest or greatest to least) or must be matching numbers. Again, only play cards that are ascending, descending, or matching. Note: Ascending and Descending cards count the same way in this game.<br>
+*Consecutive Cards*
+4 5 6
+5 4
+1 2 3 4 5<br>
+*Matching Cards*
+1 1 1 1
+2 2
+3 3 3<br>
+
+**Rule 2**
+The set that was **shown** immidiately before your turn is called the "***Active Set***". If there is no Active Set, then you can play any set you'd like (at the start of the round there is no Active Set!). If there is an Active Set, you must **Show** a set that is stronger than the Active Set.<br>
+On your turn, take one of the following actions:
+
+**1. Show**
+
+Look at the amount of cards there are at the Active Set. Play a card via the following rules:
+- Playing more cards is always better
+- A matching set of cards always beats a run of cards (2 2 will beat a 3 4 for instance)
+- If playing a run with the same amount of cards as the Active Set, you must play a run that is higher than that of the Active Set (3 4 would beat a 2 3, but a 8 7 would not beat a 8 9)
+- If playing a set with the same amount of cards as the Active Set, you must similarly play a set that is higher than that of the Active Set (4 4 would beat a 3 3, but 5 5 would not beat a 6 6)<br>
+If you're able to **Show** based on the following rules above, then go ahead and **Show** the cards at the center of the table. Immediately take the previous Active Set and place those cards, face down, in a pile next to you. These cards will be used for scoring, covered later.<br>
+
+**2. Scout**
+Take one card from the Active Set. If there is more than one card in the Active Set, then:
+
+- Take a card from either end of the Active Set. You may take that card as the number shown on the card, it as the number it would be when flipped.
+- For example, consider the following Active Set:
+
+
 
 
