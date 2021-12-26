@@ -1,10 +1,15 @@
 window.onload = () => {
+    cards = shuffle(cards)
     preloadImages()
+}
+
+let renderImages = () => {
     let container = document.querySelector('.container')
     cards.forEach(newCard => {
         let theCard = document.createElement('img')
         theCard.setAttribute('src', photoToLink(newCard))
         theCard.className = 'card'
+        theCard.style.transform = newCard.isTopSide ? 'rotate(180deg)' : ''
         container.append(theCard)
     })
 }

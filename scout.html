@@ -8,11 +8,12 @@
     <script src="js/init.js"></script>
     <script src="js/photoToLink.js"></script>
     <script src="js/cards.js"></script>
+    <script src="js/gameCreation/gameCreation.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="loading-container">
-        <h1 class="loading-heading">Loading, Please Wait...</h1>
+        <h1>Loading, Please Wait...</h1>
         <div class="progress">
             <label for="file">0% Complete</label>
             <br><br>
@@ -20,7 +21,26 @@
         </div>
     </div>
     <div class="container">
-        <p>Test</p>
+        <div class="welcome">
+            <h2>Welcome to Scout!</h2>
+            <h4>Enter a nickname: </h4>
+            <input type="text" placeholder="Nickname" id="input-nickname"/>
+            <div class="choose-mode">
+                <div class="choose-left">
+                    <h4>Join Existing Game</h4>
+                    <input type="text" id="gameCodeInput" placeholder="Game Code"/>
+                    <a onclick=joinGame() href="javascript:void(0)">Join Game</a>
+                </div> 
+                <p>--OR--</p>
+                <div class="choose-right">
+                    <h4>Create New Game</h4>
+                    <a onlick=createGame() href="javascript:void(0)">Create Game</a>
+                </div> 
+            </div>
+        </div>
+        <div class="game">
+
+        </div>
     </div>
 </body>
 </html>
