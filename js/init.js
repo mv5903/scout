@@ -1,10 +1,45 @@
 window.onload = () => {
+    cards = shuffle(cards)
+    preloadImages()
+}
+
+let renderImages = () => {
     let container = document.querySelector('.container')
     cards.forEach(newCard => {
         let theCard = document.createElement('img')
-        let params = '' + newCard.top + newCard.bottom
-        theCard.setAttribute('src', photoToLink(params))
+        theCard.setAttribute('src', photoToLink(newCard))
         theCard.className = 'card'
+        theCard.style.transform = newCard.isTopSide ? 'rotate(180deg)' : ''
         container.append(theCard)
     })
+}
+
+var progressBar = 0
+
+let preloadImages = async () => {
+    const preloadImage = src => 
+    new Promise(r => {
+        const image = new Image()
+        image.onload = r
+        image.onerror = r
+        image.src = src
+    })
+    
+    await Promise.all(cards.map(card => {
+        let imageLink = photoToLink(card)
+        preloadImage(imageLink).then(() => {
+            progressBar++
+            setProgressBar(progressBar)
+            if (progressBar == 45) {
+                document.querySelector('.loading-container').remove()
+                document.querySelector('.container').style.visibility = 'visible'
+            }
+        })
+    }))  
+}
+
+let setProgressBar = value => {
+    let val = Math.floor(value / 45 * 100)
+    label = document.querySelector('label').textContent = val + '% Complete'
+    document.querySelector('#file').value = val
 }

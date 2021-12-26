@@ -1,7 +1,134 @@
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #222;
+  color: white;
 }
 
 .card {
-    width: 120px;
+  width: 120px;
 }
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: fade 5s infinite;
+  animation: fade 5s infinite;
+  -moz-animation: fade 5s infinite;
+  -o-animation: fade 5s infinite;
+}
+.loading-container h1 {
+  font-size: 5em;
+  text-align: center;
+}
+
+.progress {
+  margin-top: 40vh;
+  text-align: center;
+  bottom: 0;
+  font-size: 3em;
+}
+
+.container {
+  visibility: collapse;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+@-moz-keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+@-o-keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+.welcome {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.welcome h2 {
+  font-size: 36px;
+  text-align: center;
+}
+.welcome h4 {
+  margin-top: 15vh;
+  font-size: 28px;
+  text-align: center;
+}
+.welcome input[type=text] {
+  margin-top: 2vh;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+.welcome a {
+  background-color: white;
+  padding: 10px;
+  margin: 20px;
+  font-size: 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+.choose-mode {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.choose-mode p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1;
+  text-align: center;
+  font-size: 18px;
+}
+.choose-mode div {
+  margin-left: 20vh;
+  margin-right: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */
