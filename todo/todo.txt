@@ -1,0 +1,12 @@
+In Game Creation folder, in the js file:
+
+CREATE GAME FUNCTION
+-Generate random gamecode that is 6 digit.
+-Check if it already exists in database first, if yes then generate again.
+-If all is well, create a new Database row where you retrieve the host's 
+IP Address using the Whois api, and store the game code and IP there.
+
+JOIN GAME FUNCTION
+-Check if the game code exists in the database
+    -If not, show an alert!
+    -If yes, allow them into the game.
