@@ -27,7 +27,7 @@ Try to put together and play a stronger set of cards than the other players in o
 | Players | # Of Cards To Remove | Image |
 | ------- | --------------- | --- |
 | 2 | 1 card | <img src="https://mattvandenberg.com/images/scout/109.PNG" alt="4/2" height="50"> |
-| 3 | 9 cards, all that have a 10 on them. |  <img src="https://mattvandenberg.com/images/scout/103.PNG" alt="4/2" height="50"> |
+| 3 | 9 cards, all that have a 10 on them. |  <img src="https://mattvandenberg.com/images/scout/101.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/102.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/103.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/104.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/105.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/106.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/107.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/108.PNG" alt="4/2" height="50"> <img src="https://mattvandenberg.com/images/scout/10.9PNG" alt="4/2" height="50"> |
 | 4 | 1 card | <img src="https://mattvandenberg.com/images/scout/109.PNG" alt="4/2" height="50"> |
 | 5 | All cards are used. Do not leave any out! |
 
