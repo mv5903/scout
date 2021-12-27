@@ -3,7 +3,7 @@ This is a web application version of Kei Kajino's *Scout for the Show*. As no ot
 <br>
 :warning: Please note that this game is currently in development! :warning:
 <br>
-For any inquiries please contact me at my email.
+For any inquiries please contact me at my email. 
 
 ## Game Instructions
 You have suddenly been appointed as the leader of a circus. Using the members of your circus you must put together a show that will beat out your rivals. Everyone on your team has a specific role. To fill in the gaps on your team, try to scout members away from other circus groups! Will you battle with your current members? Or will you wait it out and try to recruit different ones? You will feel amazing when you make the right choices in this speedy card game!
@@ -35,7 +35,7 @@ Try to put together and play a stronger set of cards than the other players in o
 
 ### 3. Setting Up the Round
 - Place all scout chips in the center of the table.
-- Give all players 1 *Scout & Show* chip each.
+- Give all players 1 *Scout & Show* chip.
 - Shuffle the cards well and deal **all of them** to the players evenly. For example, 3 players would leave each player with 12 cards, 4 players would each have 11, and 5 players would each have 9 cards. Be sure to shuffle the cards based on position and orientation.
 - :warning: Do not put the cards in your hand until all cards have been dealt.
 - Once all cards have been dealt, place them in your hand so that the other players cannot see the numbers.
