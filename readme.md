@@ -17,7 +17,7 @@ You have suddenly been appointed as the leader of a circus. Using the members of
 
 ### **Gameplay**
 ### 1. Objective
-Try to put together and play a stronger set of cards than the other players in order to earn points. Cards that are lined up consecutively are stronger, but you cannot reorder the cards in your hand. Skillfully "**Scout**" new cards and put on a "**Show**" while you create a strong hand to try and earn many points. Play as many rounds as there are players; the player with the most total points at the end is the winner!
+Try to put together and play a stronger set of cards than the other players in order to earn points. The cards that are lined up consecutively are stronger, but you cannot reorder the cards in your hand. Skillfully "**Scout**" new cards and put on a "**Show**" while you create a strong hand to try and earn many points. Play as many rounds as there are players; the player with the most total points at the end is the winner!
 
 ### 2. Setting Up the Game
 - Decide on a starting player. This player take the Starting Player Marker.
