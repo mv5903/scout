@@ -5,16 +5,28 @@ let joinGame = () => {
 
 
     console.log('Join Game Pressed')
-    document.querySelector('.game').style.visibility = 'visible';
-    document.querySelector('.welcome').remove()
+    // document.querySelector('.welcome').style.visibility = 'hidden';
+    // document.querySelector('.game').style.visibility = 'visible';
+    //startGame()
 }
 
 let createGame = () => {
     let username = document.querySelector('#gameCodeInput').value
     
 
-    
+
     console.log('Create Game Pressed')
-    document.querySelector('.game').style.visibility = 'visible';
-    document.querySelector('.welcome').remove()
+    // document.querySelector('.welcome').style.visibility = 'hidden';
+    // document.querySelector('.game').style.visibility = 'visible';
+    //startGame()
 }
+
+let startGame = () => {
+    const socket = io('http://www.mattvandenberg.com:8080')
+
+    socket.on("connect", (socket) => {
+        console.log(socket.id)
+        console.log('Connected to Host!')
+    })
+}
+

@@ -79,7 +79,7 @@ body {
         border-radius: 5px;
         padding: 5px;
     }
-    a {
+    button {
         background-color: white;
         padding: 10px;
         margin: 20px;
@@ -87,6 +87,10 @@ body {
         border-radius: 3px;
         text-decoration: none;
         color: black;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: grey
     }
 }
 

@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scout</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js" integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/init.js"></script>
     <script src="js/photoToLink.js"></script>
     <script src="js/cards.js"></script>
     <script src="js/gameCreation/gameCreation.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
     <div class="loading-container">
         <h1>Loading, Please Wait...</h1>
         <div class="progress">
@@ -29,17 +30,17 @@
                 <div class="choose-left">
                     <h4>Join Existing Game</h4>
                     <input type="text" id="gameCodeInput" placeholder="Game Code"/>
-                    <a onclick=joinGame() href="javascript:void(0)">Join Game</a>
+                    <button onclick="joinGame();">Join Game</button>
                 </div> 
                 <p>--OR--</p>
                 <div class="choose-right">
                     <h4>Create New Game</h4>
-                    <a onlick=createGame() href="javascript:void(0)">Create Game</a>
+                    <button onclick="createGame();">Create Game</button>
                 </div> 
             </div>
         </div>
         <div class="game">
-            
+
         </div>
     </div>
 </body>
