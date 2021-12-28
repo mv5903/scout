@@ -1,31 +1,21 @@
 let joinGame = () => {
-    //DEBUG
-    document.querySelector('#input-nickname').value = 'TESTPLAYER'
-    //
     let username = document.querySelector('#input-nickname').value
-    let gameCode = document.querySelector('#gameCodeInput').value
+    let gameCode = parseInt(document.querySelector('#gameCodeInput').value)
 
-    console.log('Join Game Pressed')
-    activateGamePage(username, gameCode)
+    activateGamePage(username, gameCode, false)
 }
 
 let createGame = () => {
-    //DEBUG
-    document.querySelector('#input-nickname').value = 'TESTPLAYER'
-    //
     let username = document.querySelector('#input-nickname').value
     let gameCode = Math.floor(100000 + Math.random() * 900000)
 
-    console.log('Create Game Pressed')
-    activateGamePage(username, gameCode)
+    activateGamePage(username, gameCode, true)
 }
 
-let activateGamePage = (username, gameCode) => {
-    document.querySelector('.welcome').style.display = 'none'
-    document.querySelector('.game').style.display = 'block'
-
-    document.querySelector('.game').style.display = 'block'
+let activateGamePage = (username, gameCode, ishost) => {
+    setVisible('.welcome', false)
+    setVisible('.game', true)
     document.querySelector('#game-code').textContent = 'Game Code: ' + gameCode
     document.querySelector('#game-username').textContent = 'Hi, ' + username
-    startGame(username, gameCode)
+    startGame(username, gameCode, ishost)
 }

@@ -138,5 +138,8 @@ body {
 .game {
   display: none;
 }
+.game button {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */

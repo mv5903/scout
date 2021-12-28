@@ -1,18 +1,27 @@
-let startGame = (username, gamecode) => {
-    const socket = io('localhost:2000')
+// This file is responsible for communication with the server. It will listen (.on) for events
+// and will broadcast (.emit) events to the server
+
+let startGame = (username, gamecode, ishost) => {
+    const socket = io('localhost:2000', {
+        'reconnection': true,
+        'reconnectionDelay': 500,
+        'reconnectionAttempts': Infinity
+    })
+
     socket.on("connect", socket => {
-        console.log('Connected to Server!')
+        console.info('Connected to Server!')
     })
 
     // Start Here
     socket.emit('init-connection', {
         userName: username,
-        gameCode: gamecode
+        gameCode: gamecode,
+        ishost: ishost
     })
 
     // Constantly listens to messages from server
     socket.on('serverMessage', data => {
-        console.log('Message Received from Server: ' + data.msg)
+        console.info('Message Received from Server: ' + data.msg)
     })
 
     // Constant feedback loop from server updating game information
