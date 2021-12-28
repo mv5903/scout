@@ -18,12 +18,11 @@ let createGame = () => {
     console.log('Create Game Pressed')
     // document.querySelector('.welcome').style.visibility = 'hidden';
     // document.querySelector('.game').style.visibility = 'visible';
-    //startGame()
+    startGame()
 }
 
 let startGame = () => {
-    const socket = io('http://www.mattvandenberg.com:8080')
-
+    const socket = io()
     socket.on("connect", (socket) => {
         console.log(socket.id)
         console.log('Connected to Host!')
