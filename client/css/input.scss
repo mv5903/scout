@@ -1,4 +1,4 @@
-// css % sass --watch input.scss style.css
+// sass --watch input.scss style.css
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -117,4 +117,8 @@ body {
         flex-direction: column;
         align-items: center;
     }
+}
+
+.game {
+    display: none;
 }

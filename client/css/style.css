@@ -135,4 +135,8 @@ body {
   align-items: center;
 }
 
+.game {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

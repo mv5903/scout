@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js" integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/photoToLink.js"></script>
     <script src="js/cards.js"></script>
-    <script src="js/gameCreation/gameCreation.js"></script>
+    <script src="js/game/gameCreation.js"></script>
+    <script src="js/game/GAME.js"></script>
     <div class="loading-container">
         <h1>Loading, Please Wait...</h1>
         <div class="progress">
@@ -41,7 +42,8 @@
         </div>
         <div class="game">
             <div class="game-info">
-                <h3 id="game-code">Game Code: </h3>
+                <h3 id="game-code">Game Code: ?</h3>
+                <h3 id="game-username">Welcome, ?</h3>
             </div>
         </div>
     </div>
