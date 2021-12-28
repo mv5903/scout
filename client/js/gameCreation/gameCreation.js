@@ -1,13 +1,13 @@
 let joinGame = () => {
-    let gameCode = document.querySelector('#input-nickname').value
-    let username = document.querySelector('#gameCodeInput').value
+    let username = document.querySelector('#input-nickname').value
+    let gameCode = document.querySelector('#gameCodeInput').value
 
 
 
     console.log('Join Game Pressed')
-    // document.querySelector('.welcome').style.visibility = 'hidden';
-    // document.querySelector('.game').style.visibility = 'visible';
-    //startGame()
+    document.querySelector('.welcome').style.visibility = 'hidden';
+    document.querySelector('.game').style.visibility = 'visible';
+    startGame()
 }
 
 let createGame = () => {
@@ -16,16 +16,19 @@ let createGame = () => {
 
 
     console.log('Create Game Pressed')
-    // document.querySelector('.welcome').style.visibility = 'hidden';
-    // document.querySelector('.game').style.visibility = 'visible';
+    document.querySelector('.welcome').style.visibility = 'hidden';
+    document.querySelector('.game').style.visibility = 'visible';
     startGame()
 }
 
 let startGame = () => {
-    const socket = io()
+    const socket = io('localhost:2000')
     socket.on("connect", (socket) => {
-        console.log(socket.id)
-        console.log('Connected to Host!')
+        console.log('Connected to Server!')
+    })
+
+    socket.on('serverMessage', (data) => {
+        console.log('Message Received from Server: ' + data)
     })
 }
 
