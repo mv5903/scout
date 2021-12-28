@@ -13,8 +13,8 @@ let createGame = () => {
 }
 
 let activateGamePage = (username, gameCode, ishost) => {
-    setVisible('.welcome', false)
-    setVisible('.game', true)
+    HTML.setVisible('.welcome', false)
+    HTML.setVisible('.game', true)
     document.querySelector('#game-code').textContent = 'Game Code: ' + gameCode
     document.querySelector('#game-username').textContent = 'Hi, ' + username
     startGame(username, gameCode, ishost)
