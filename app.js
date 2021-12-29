@@ -1,6 +1,6 @@
 // This file is the code for the server. All server code goes in this file only! The server will talk to each player.
 
-// This is the port that the server will run on. Change it by changing this declaration.
+// This is the port that the server will run on. Change it by changing this declaration. But keep it 2000 for now pls.
 const PORT = 2000
 
 // These are essentially imports. They are grabbing express for file communication and the others are declaring a simple websocket server.
@@ -38,12 +38,14 @@ const io = require('socket.io')(server, {
 */
 var PLAYER_LIST = {}
 
+// This gets triggered whenever a new connection is made from the client
 io.sockets.on('connection', socket => {
     console.log('Socket Connection has been made.')
 
     //Since the inital connection can't handle additional arguments, this is the next event that is emitted immediately afterwards.
     socket.on('init-connection', data => {
-        //Check if this is a reconnection based on game pin and username, first
+        // Check if this is a reconnection based on game pin and username, first. 
+        // We would then need to redirect the connection to this new socket and kill the old one.
         for (var i in PLAYER_LIST) {
             if (PLAYER_LIST[i].username == data.userName && PLAYER_LIST[i].gamecode == data.gameCode) {
                 console.info('Player Reconnected at another device!')
@@ -57,9 +59,9 @@ io.sockets.on('connection', socket => {
                 return
             }
         }
-        //If not already in player list, then we can assume this a new connection
+        // If not already in player list, then we can assume this a new connection
         console.log('New Player Connected:')
-        console.log(data.userName + ' joined with game code ' + data.gameCode)
+        console.log('***' + data.userName + ' joined with game code ' + data.gameCode + '***')
         socket.id = Math.random()
         socket.ishost = data.ishost
         socket.username = data.userName
