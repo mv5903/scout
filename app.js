@@ -59,6 +59,7 @@ io.sockets.on('connection', socket => {
                 return
             }
         }
+        
         // If not already in player list, then we can assume this a new connection
         console.log('New Player Connected:')
         console.log('***' + data.userName + ' joined with game code ' + data.gameCode + '***')
