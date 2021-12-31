@@ -21,7 +21,11 @@ let startGame = (username, gamecode, ishost) => {
 
     // Constantly listens to messages from server
     socket.on('serverMessage', data => {
-        console.info('Message Received from Server: ' + data.msg)
+        console.info('Message Received from Server: ' + newgamecode)
+    })
+
+    socket.on('gamecodechange', data => {
+        console.info('Game Code has been changed to: ' + data.msg)
     })
 
     // Constant feedback loop from server updating game information

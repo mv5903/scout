@@ -59,10 +59,30 @@ io.sockets.on('connection', socket => {
                 return
             }
         }
+        for (var i in PLAYER_LIST) {
+            if (PLAYER_LIST[i].gamecode == data.gameCode && data.ishost) {
+                console.info('Player Registered with duplicate game code. Changing player game code!')
+                socket.gameCode = Math.floor(100000 + Math.random() * 900000)
+                socket.emit('gamecodechange', {
+                    newgamecode: socket.gameCode
+                }) 
+            }
+        }
+
+        for (var i in PLAYER_LIST) {
+            if (PLAYER_LIST[i].id == socket.id) {
+                console.info('Player was paired with duplicate id. Changing player id!')
+                socket.id = Math.random()
+                socket.emit('idchange', {
+                    newid: socket.id
+                }) 
+            }
+        }
         
         // If not already in player list, then we can assume this a new connection
         console.log('New Player Connected:')
         console.log('***' + data.userName + ' joined with game code ' + data.gameCode + '***')
+        //do the same thing make listeners on the game side
         socket.id = Math.random()
         socket.ishost = data.ishost
         socket.username = data.userName
