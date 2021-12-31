@@ -9,6 +9,7 @@ let createGame = () => {
     let username = document.querySelector('#input-nickname').value
     let gameCode = Math.floor(100000 + Math.random() * 900000)
 
+    HTML.setVisible('#start-game-button', true)
     activateGamePage(username, gameCode, true)
 }
 

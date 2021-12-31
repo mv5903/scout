@@ -31,77 +31,83 @@ const io = require('socket.io')(server, {
     .gamecode = Game code that the user joins with. This server can handle about 900000 games at once, so the server needs
                 to know what's going on in each game.
     .id = A unique identifier used for events such as reconnection. When we reconnect with the same game code and user, the id 
-                is maintained so that the server knows that the next connection should receive all future events.
+                is maintained so that the server knows that the most recent connection should receive all future events.
     .ishost = Boolean that determines the host of the game. When all players connect, the host hits the 'Start Game' button to trigger
                 the start of a game.
     
 */
+
 var PLAYER_LIST = {}
 
 // This gets triggered whenever a new connection is made from the client
 io.sockets.on('connection', socket => {
     console.log('Socket Connection has been made.')
 
-    //Since the inital connection can't handle additional arguments, this is the next event that is emitted immediately afterwards.
+    // Since the inital connection can't handle additional arguments, this is the next event that is emitted from each client immediately afterwards.
     socket.on('init-connection', data => {
+        // This is the JavaScript object where we will store the data we need for the game in the socket object.
+        socket.player = {
+            id: 0.0,
+            username: '',
+            gamecode: 0,
+            ishost: ''
+        }
         // Check if this is a reconnection based on game pin and username, first. 
         // We would then need to redirect the connection to this new socket and kill the old one.
         for (var i in PLAYER_LIST) {
-            if (PLAYER_LIST[i].username == data.userName && PLAYER_LIST[i].gamecode == data.gameCode) {
-                console.info('Player Reconnected at another device!')
-                socket.id = PLAYER_LIST[i].id
-                var ishost = PLAYER_LIST[i].ishost
+            if (PLAYER_LIST[i].player.username == data.username && PLAYER_LIST[i].player.gamecode == data.gamecode) {
+                console.warn(`Player ${data.username} reconnected from another device!`)
+                socket.player.id = PLAYER_LIST[i].player.id
+                var ishost = PLAYER_LIST[i].player.ishost
                 delete PLAYER_LIST[i]
-                socket.username = data.userName
-                socket.gamecode = data.gameCode
-                socket.ishost = ishost
+                socket.player.username = data.username
+                socket.player.gamecode = data.gamenode
+                socket.player.ishost = ishost
                 PLAYER_LIST[i] = socket
                 return
             }
         }
-        for (var i in PLAYER_LIST) {
-            if (PLAYER_LIST[i].gamecode == data.gameCode && data.ishost) {
-                console.info('Player Registered with duplicate game code. Changing player game code!')
-                socket.gameCode = Math.floor(100000 + Math.random() * 900000)
+
+         // Check to see if game code already exists (although this is extremely rare, it's still good to check!)
+         for (var i in PLAYER_LIST) {
+            if (PLAYER_LIST[i].player.gamecode == data.gamecode && data.ishost) {
+                socket.player.gamecode = Math.floor(100000 + Math.random() * 900000)
+                console.warn(`The connecting player ${data.username} attempted to create a game with a game code that already is in progress. The game code will be changed to ${socket.player.gamecode} and sent back to the player.`)
                 socket.emit('gamecodechange', {
-                    newgamecode: socket.gameCode
+                    newgamecode: socket.player.gameCode
                 }) 
+            }
+        }
+        // Check to see if unique id per player already exists (this is even rarer, but again it doesn't hurt to check!)
+        for (var i in PLAYER_LIST) {
+            if (PLAYER_LIST[i].player.id == socket.player.id) {
+                socket.player.id = Math.random()
+                console.warn(`The randomly generated id for player ${data.username} was found in the master player list. Changing their id to ${socket.player.id}.`)
             }
         }
 
-        for (var i in PLAYER_LIST) {
-            if (PLAYER_LIST[i].id == socket.id) {
-                console.info('Player was paired with duplicate id. Changing player id!')
-                socket.id = Math.random()
-                socket.emit('idchange', {
-                    newid: socket.id
-                }) 
-            }
-        }
-        
         // If not already in player list, then we can assume this a new connection
         console.log('New Player Connected:')
-        console.log('***' + data.userName + ' joined with game code ' + data.gameCode + '***')
-        //do the same thing make listeners on the game side
-        socket.id = Math.random()
-        socket.ishost = data.ishost
-        socket.username = data.userName
-        socket.gamecode = data.gameCode
+        console.log('***' + data.username + ' joined with game code ' + data.gamecode + '***')
+        socket.player = {
+            id: Math.random(),
+            ishost: data.ishost,
+            username: data.username,
+            gamecode: data.gamecode
+        }
         PLAYER_LIST[socket.id] = socket
     })
 })
 
-/*This function gets called n times per second and is used to send any new information to clients that was updated from the above code
- * For Debugging purposes, this will be set to 1 time per second until final deployment
+/* This function gets called n times per second and is used to send any new information to clients that was updated from the above code
+ * For Debugging purposes, this will be set to 1 time per second until final deployment.
  */
 const n = 1
 setInterval(() => {
     for (var i in PLAYER_LIST) {
         var socket = PLAYER_LIST[i]
         socket.emit('gamedata', {
-            username: socket.username,
-            gamecode: socket.gamecode,
-            ishost: socket.ishost
+            data: socket.player
         })
     }
 }, 1000/n)

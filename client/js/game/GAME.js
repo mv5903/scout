@@ -14,8 +14,8 @@ let startGame = (username, gamecode, ishost) => {
 
     // Start Here
     socket.emit('init-connection', {
-        userName: username,
-        gameCode: gamecode,
+        username: username,
+        gamecode: gamecode,
         ishost: ishost
     })
 
@@ -25,11 +25,14 @@ let startGame = (username, gamecode, ishost) => {
     })
 
     socket.on('gamecodechange', data => {
-        console.info('Game Code has been changed to: ' + data.msg)
+        document.querySelector('#game-code').textContent = 'Game Code: ' + data.newgamecode
+        console.warn('Game Code has been changed to: ' + data.newgamecode)
     })
 
     // Constant feedback loop from server updating game information
     socket.on('gamedata', data => {
+        console.group('Player Packet Received:')
         console.log(data)
+        console.groupEnd()
     })
 }

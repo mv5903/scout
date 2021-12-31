@@ -141,5 +141,8 @@ body {
 .game button {
   display: none;
 }
+.game #start-game-button {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */
