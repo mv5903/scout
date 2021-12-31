@@ -19,10 +19,7 @@ let startGame = (username, gamecode, ishost) => {
         ishost: ishost
     })
 
-    // Constantly listens to messages from server
-    socket.on('serverMessage', data => {
-        console.info('Message Received from Server: ' + newgamecode)
-    })
+    document.querySelector('#start-game-button').addEventListener('click', () => socket.emit('startgame'))
 
     socket.on('gamecodechange', data => {
         document.querySelector('#game-code').textContent = 'Game Code: ' + data.newgamecode
@@ -32,7 +29,14 @@ let startGame = (username, gamecode, ishost) => {
     // Constant feedback loop from server updating game information
     socket.on('gamedata', data => {
         console.group('Player Packet Received:')
-        console.log(data)
+        console.log(data.data)
         console.groupEnd()
+
+        // Fired when game is started by host
+        if (data.data.gameinprogress) {
+            HTML.setVisible('#game-waiting-for-host', false)
+            HTML.setVisible('#start-game-button', false) 
+            HTML.setVisible('.game-view', true) 
+        }
     })
 }

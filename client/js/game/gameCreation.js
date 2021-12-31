@@ -2,6 +2,7 @@ let joinGame = () => {
     let username = document.querySelector('#input-nickname').value
     let gameCode = parseInt(document.querySelector('#gameCodeInput').value)
 
+    HTML.setVisible('#game-waiting-for-host', true)
     activateGamePage(username, gameCode, false)
 }
 
@@ -17,6 +18,6 @@ let activateGamePage = (username, gameCode, ishost) => {
     HTML.setVisible('.welcome', false)
     HTML.setVisible('.game', true)
     document.querySelector('#game-code').textContent = 'Game Code: ' + gameCode
-    document.querySelector('#game-username').textContent = 'Hi ' + username
+    document.querySelector('#game-username').textContent = 'Hi ' + username + '!'
     startGame(username, gameCode, ishost)
 }

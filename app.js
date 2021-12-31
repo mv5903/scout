@@ -16,14 +16,18 @@ app.use('/client', express.static(__dirname + '/client'))
 server.listen(PORT)
 console.log('Server Started.')
 
-/** SERVER CODE STARTS HERE */
-
 // Leave this alone
 const io = require('socket.io')(server, {
     cors: {
         origin: '*',
     }
 })
+
+/** SERVER CODE STARTS HERE */
+
+
+// Import the cards file for use on the server
+var cards = require('./cards').cards
 
 // Keeps track of each player's status such as their name, cards in their hand, etc. Format and description as follows:
 /*
@@ -50,7 +54,8 @@ io.sockets.on('connection', socket => {
             id: 0.0,
             username: '',
             gamecode: 0,
-            ishost: ''
+            ishost: '',
+            gameinprogress: false
         }
         // Check if this is a reconnection based on game pin and username, first. 
         // We would then need to redirect the connection to this new socket and kill the old one.
@@ -89,15 +94,30 @@ io.sockets.on('connection', socket => {
         // If not already in player list, then we can assume this a new connection
         console.log('New Player Connected:')
         console.log('***' + data.username + ' joined with game code ' + data.gamecode + '***')
-        socket.player = {
-            id: Math.random(),
-            ishost: data.ishost,
-            username: data.username,
-            gamecode: data.gamecode
-        }
+        socket.player.id = Math.random()
+        socket.player.ishost = data.ishost
+        socket.player.username = data.username
+        socket.player.gamecode = data.gamecode
         PLAYER_LIST[socket.id] = socket
     })
+
+    socket.on('startgame', () => {
+        console.log('Received Start Game Request')
+        for (var i in PLAYER_LIST) {
+            if (PLAYER_LIST[i].player.gamecode == socket.player.gamecode) {
+                PLAYER_LIST[i].player.gameinprogress = true
+            }
+        }
+    })
 })
+
+let broadcast = (gamecode, message) => {
+    for (var i in PLAYER_LIST) {
+        if (PLAYER_LIST[i].player.gamecode == gamecode) {
+            PLAYER_LIST[i].emit(message)
+        }
+    }
+}
 
 /* This function gets called n times per second and is used to send any new information to clients that was updated from the above code
  * For Debugging purposes, this will be set to 1 time per second until final deployment.
@@ -111,3 +131,13 @@ setInterval(() => {
         })
     }
 }, 1000/n)
+
+/*
+ *  Debug only
+ */
+let printAllPlayers = () => {
+    for (var i in PLAYER_LIST) {
+        var socket = PLAYER_LIST[i]
+        console.log(socket.player)
+    }
+}

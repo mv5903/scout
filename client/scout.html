@@ -31,7 +31,7 @@
             <div class="choose-mode">
                 <div class="choose-left">
                     <h4>Join Existing Game</h4>
-                    <input type="text" id="gameCodeInput" placeholder="Game Code"/>
+                    <input type="number" id="gameCodeInput" placeholder="Game Code"/>
                     <button onclick="joinGame();">Join Game</button>
                 </div> 
                 <p>--OR--</p>
@@ -45,7 +45,39 @@
             <div class="game-info">
                 <h3 id="game-code">Game Code: ?</h3>
                 <h3 id="game-username">Welcome, ?</h3>
-                <button id="start-game-button">Start the game!</button>
+                <h4 id="game-waiting-for-host">Waiting for host to start the game...</h4>
+                <button id="start-game-button" onclick="void(0)">Start the game!</button>
+            </div>
+            <div class="game-view">
+                <div class="active-set">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/104.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/93.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/32.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/21.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/43.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/73.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/82.PNG">
+                </div>
+                <div class="player-hand">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/104.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/93.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/32.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/21.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/43.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/73.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/82.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/104.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/93.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/32.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/21.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/43.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/73.PNG">
+                    <img class="card" src="https://www.mattvandenberg.com/images/scout/82.PNG">
+                </div>
+                <div class="scout-tokens"></div>
+                <div class="total-points"></div>
+                <div class="scout-and-play"></div>
+                <div class="all-player-points"></div>
             </div>
         </div>
     </div>
