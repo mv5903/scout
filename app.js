@@ -135,7 +135,13 @@ io.sockets.on('connection', socket => {
         let playerNumber = 0
         for (var i in PLAYER_LIST) {
             if (socket.player.gamecode == PLAYER_LIST[i].player.gamecode) {
-                let cardsToGive = deck.slice().splice(playerNumber * (deck.length / playerCount), ((playerNumber+1) * (deck.length / playerCount) - 1))
+                // let cardsToGive = deck.slice().splice(playerNumber * (deck.length / playerCount), ((playerNumber+1) * (deck.length / playerCount) - 1))
+                if (playerNumber == playerCount - 1) {
+                    let cardsToGive = deck.slice().splice(deck.length - (deck.length / playerCount), deck.length)
+                    //cardsToGive.push(deck[deck.length])
+                } else {
+                    let cardsToGive = deck.slice().splice(playerNumber * (deck.length / playerCount), ((playerNumber+1) * (deck.length / playerCount)))
+                }
                 PLAYER_LIST[i].player.hand = cardsToGive
                 console.log({
                     name: PLAYER_LIST[i].player.username,
