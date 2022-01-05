@@ -26,17 +26,33 @@ let startGame = (username, gamecode, ishost) => {
         console.warn('Game Code has been changed to: ' + data.newgamecode)
     })
 
+    socket.on('broadcast', () => {
+        console.error('Fix player count!')
+    })
+
     // Constant feedback loop from server updating game information
     socket.on('gamedata', data => {
+        data = data.data
+
         console.group('Player Packet Received:')
-        console.log(data.data)
+        console.log(data)
         console.groupEnd()
 
         // Fired when game is started by host
-        if (data.data.gameinprogress) {
+        if (data.gameinprogress) {
             HTML.setVisible('#game-waiting-for-host', false)
             HTML.setVisible('#start-game-button', false) 
             HTML.setVisible('.game-view', true) 
+        }
+
+        if (data.hand != [] && document.querySelector('.player-hand').firstChild) {
+            let playerHand = document.querySelector('.player-hand')
+            data.hand.forEach(card => {
+                let cardToAdd = document.createElement('img')
+                cardToAdd.setAttribute('src', photoToLink(card))
+                cardToAdd.className = 'card'
+                playerHand.append(cardToAdd)
+            })
         }
     })
 }

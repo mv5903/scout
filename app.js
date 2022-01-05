@@ -28,6 +28,7 @@ const io = require('socket.io')(server, {
 
 // Import the cards file for use on the server
 var cards = require('./cards').cards
+var shuffle = require('./cards').shuffle
 
 // Keeps track of each player's status such as their name, cards in their hand, etc. Format and description as follows:
 /*
@@ -55,7 +56,8 @@ io.sockets.on('connection', socket => {
             username: '',
             gamecode: 0,
             ishost: '',
-            gameinprogress: false
+            gameinprogress: false,
+            hand: []
         }
         // Check if this is a reconnection based on game pin and username, first. 
         // We would then need to redirect the connection to this new socket and kill the old one.
@@ -103,10 +105,44 @@ io.sockets.on('connection', socket => {
 
     socket.on('startgame', () => {
         console.log('Received Start Game Request')
+        let playerCount = 0
         for (var i in PLAYER_LIST) {
             if (PLAYER_LIST[i].player.gamecode == socket.player.gamecode) {
                 PLAYER_LIST[i].player.gameinprogress = true
+                playerCount++
             }
+        }
+        // Get number of cards and remove outstanding ones
+        let deck = cards
+        switch (playerCount) {
+            case 2:
+            case 4:
+                deck = deck.filter(e => { return e.top != 10 && e.top != 9 })
+                break
+
+            case 3:
+                deck = deck.filter(e => { return e.top != 10 })
+                break
+
+            case 5:
+                break
+            
+            default:
+                broadcast(socket.player.gamecode, 'Not enough or too many players!')
+        }
+        deck = shuffle(deck)
+    
+        let playerNumber = 0
+        for (var i in PLAYER_LIST) {
+            if (socket.player.gamecode == PLAYER_LIST[i].player.gamecode) {
+                let cardsToGive = deck.splice(playerNumber * (deck.length / playerCount), ((playerNumber+1) * (deck.length / playerCount) - 1))
+                PLAYER_LIST[i].player.hand = cardsToGive
+                console.log({
+                    name: PLAYER_LIST[i].player.username,
+                    cards: cardsToGive
+                })
+            }
+            playerNumber++
         }
     })
 })
@@ -114,7 +150,9 @@ io.sockets.on('connection', socket => {
 let broadcast = (gamecode, message) => {
     for (var i in PLAYER_LIST) {
         if (PLAYER_LIST[i].player.gamecode == gamecode) {
-            PLAYER_LIST[i].emit(message)
+            PLAYER_LIST[i].emit('broadcast', {
+                message: message
+            })
         }
     }
 }
