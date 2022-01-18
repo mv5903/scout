@@ -45,9 +45,17 @@ let startGame = (username, gamecode, ishost) => {
             HTML.setVisible('.game-view', true) 
         }
 
+        function removeAllChildNodes(parent) {
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild)
+            }
+        }
+
         if (data.hand != []) {
             let playerHand = document.querySelector('.player-hand')
             // Remove all children from player-hand div, then let the below run.
+            removeAllChildNodes(playerHand)
+
             data.hand.forEach(card => {
                 let cardToAdd = document.createElement('img')
                 cardToAdd.setAttribute('src', photoToLink(card))
@@ -55,5 +63,15 @@ let startGame = (username, gamecode, ishost) => {
                 playerHand.append(cardToAdd)
             })
         }
+
+        // if (data.hand != [] && document.querySelector('.player-hand').firstChild) {
+        //     let playerHand = document.querySelector('.player-hand')
+        //     data.hand.forEach(card => {
+        //         let cardToAdd = document.createElement('img')
+        //         cardToAdd.setAttribute('src', photoToLink(card))
+        //         cardToAdd.className = 'card'
+        //         playerHand.append(cardToAdd)
+        //     })
+        // }
     })
 }
