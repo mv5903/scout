@@ -45,8 +45,9 @@ let startGame = (username, gamecode, ishost) => {
             HTML.setVisible('.game-view', true) 
         }
 
-        if (data.hand != [] && document.querySelector('.player-hand').firstChild) {
+        if (data.hand != []) {
             let playerHand = document.querySelector('.player-hand')
+            // Remove all children from player-hand div, then let the below run.
             data.hand.forEach(card => {
                 let cardToAdd = document.createElement('img')
                 cardToAdd.setAttribute('src', photoToLink(card))
