@@ -114,10 +114,11 @@ io.sockets.on('connection', socket => {
         }
         // Get number of cards and remove outstanding ones
         let deck = cards
+        console.log(playerCount)
         switch (playerCount) {
             case 2:
             case 4:
-                deck = deck.filter(e => { return e.top != 10 && e.top != 9 })
+                deck = deck.filter(e => { return e.bottom != 9 })
                 break
 
             case 3:
@@ -131,7 +132,7 @@ io.sockets.on('connection', socket => {
                 broadcast(socket.player.gamecode, 'Not enough or too many players!')
         }
         deck = shuffle(deck)
-    
+        console.log(deck)
         let playerNumber = 0
         for (var i in PLAYER_LIST) {
             if (socket.player.gamecode == PLAYER_LIST[i].player.gamecode) {

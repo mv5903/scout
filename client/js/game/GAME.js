@@ -59,7 +59,7 @@ let startGame = (username, gamecode, ishost) => {
             data.hand.forEach(card => {
                 let cardToAdd = document.createElement('img')
                 cardToAdd.setAttribute('src', photoToLink(card))
-                cardToAdd.className = 'card'
+                cardToAdd.className = card.isTopSide ? 'card' : 'card rotated'
                 playerHand.append(cardToAdd)
             })
         }
